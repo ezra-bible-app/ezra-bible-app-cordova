@@ -1,0 +1,15 @@
+{
+  "name": "ezra-project-node-backend",
+  "version": "0.17.0-Dev",
+  "description": "Ezra Project is a bible study software focussing on topical study based on keywords/tags",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tobias Klein",
+  "license": "GPL-2.0+",
+  "dependencies": {
+    "node-addon-api": "^1.7.1",
+    "node-sword-interface": "^0.186.0"
+  }
+}

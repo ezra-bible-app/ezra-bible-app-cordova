@@ -1,0 +1,13 @@
+ext.cdvMinSdkVersion=24
+
+android {
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 30
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+}
+
