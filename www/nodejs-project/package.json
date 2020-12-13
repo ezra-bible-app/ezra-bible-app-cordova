@@ -10,6 +10,6 @@
   "license": "GPL-2.0+",
   "dependencies": {
     "node-addon-api": "^1.7.1",
-    "node-sword-interface": "^0.186.0"
+    "node-sword-interface": "^0.188.0"
   }
 }
