@@ -1,3 +1,7 @@
-/platforms/android/build
+# Cordova Global
+plugins/
+res/
+platforms/
+
 node_modules
 package-lock.json
