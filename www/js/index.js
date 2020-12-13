@@ -10,7 +10,23 @@ var app = {
   // 'pause', 'resume', etc.
   onDeviceReady: function() {
       this.receivedEvent('deviceready');
-      startNodeProject();
+
+      var permissions = cordova.plugins.permissions;
+
+      permissions.checkPermission(permissions.WRITE_EXTERNAL_STORAGE, (status) => {
+        if (!status.hasPermission) {
+          permissions.requestPermission(permissions.WRITE_EXTERNAL_STORAGE,
+            () => { // success
+              startNodeProject();
+            },
+            () => { // error
+              console.error('No permission to write on external storage');
+            }
+          );
+        } else {
+          startNodeProject();
+        }
+      });
   },
 
   // Update DOM on a Received Event
@@ -69,7 +85,10 @@ function startupCallback(err) {
     nodejs.channel.send('Hello from Cordova!');
 
     // Send a sample event to the Node.js app.
-    nodejs.channel.post('myevent', 'An event from Cordova');
+    // nodejs.channel.post('myevent', 'An event from Cordova');
+
+    //nodejs.channel.post('getSwordVersion', 'getSwordVersion');
+    //nodejs.channel.post('initSword', 'getSwordVersion');
   }
 };
 
