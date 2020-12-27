@@ -1,0 +1,3 @@
+[submodule "ezra-project"]
+	path = ezra-project
+	url = https://github.com/ezra-project/ezra-project.git
