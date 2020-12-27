@@ -1,9 +1,9 @@
 // Require the 'cordova-bridge' to enable communications between the
-
 // Node.js app and the Cordova app.
 const cordova = require('cordova-bridge');
-const NSI = require('node-sword-interface');
-let nsi = null;
+
+const IPC = require('./ipc/ipc.js');
+let ipc = new IPC();
 
 // A sample object to show how the channel supports generic
 // JavaScript objects.
@@ -14,7 +14,12 @@ class Reply {
   }
 };
 
-// Send a message to Cordova.
+async function init() {
+  console.log("Initializing IPC!");
+  await ipc.init();
+}
+
+init();
 cordova.channel.send('main.js loaded');
 
 cordova.channel.on('initNSI', async (msg) => {
