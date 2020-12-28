@@ -3,9 +3,9 @@
 global.cordova = require('cordova-bridge');
 
 function init() {
-  //cordova.channel.send('main.js loaded');
+  cordova.channel.send('nodejs: main.js loaded');
 
-  const IPC = require('./ipc/ipc.js');
+  const IPC = require('./app/ipc/ipc.js');
   var ipc = new IPC();
 
   console.log("Initializing IPC!");
