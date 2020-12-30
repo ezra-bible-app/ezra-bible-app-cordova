@@ -18,6 +18,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <hook src="hooks/update_build_gradle.js" type="before_build" />
+        <resource-file src="www/nodejs-project/ezra.sqlite" target="files/www/nodejs-project/ezra.sqlite" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -28,4 +29,5 @@
     <plugin name="nodejs-mobile-cordova" spec="^0.4.2" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.2" />
+    <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />
 </widget>
