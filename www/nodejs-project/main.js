@@ -17,7 +17,7 @@
    If not, see <http://www.gnu.org/licenses/>. */
 
 class Main {
-  init() {
+  init(isDebug) {
     // Require the 'cordova-bridge' to enable communications between the
     // Node.js app and the Cordova app.
     global.cordova = require('cordova-bridge');
@@ -28,7 +28,7 @@ class Main {
     var ipc = new IPC();
 
     console.log("Initializing IPC!");
-    ipc.init();
+    ipc.init(isDebug);
 
     // Handle the 'pause' and 'resume' events.
     // These are events raised automatically when the app switched to the
