@@ -31,4 +31,5 @@
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.2" />
     <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />
+    <plugin name="cordova-plugin-fullscreen" spec="^1.3.0" />
 </widget>
