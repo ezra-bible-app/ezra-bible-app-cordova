@@ -9,6 +9,7 @@
   "author": "Tobias Klein",
   "license": "GPL-2.0+",
   "dependencies": {
+    "conf": "^7.1.2",
     "fs-extra": "^9.0.1",
     "iso-639-3": "^2.2.0",
     "node-addon-api": "^1.7.1",
