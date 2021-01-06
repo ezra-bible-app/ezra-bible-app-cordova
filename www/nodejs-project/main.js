@@ -17,6 +17,7 @@
    If not, see <http://www.gnu.org/licenses/>. */
 
 const PlatformHelper = require('./app/helpers/platform_helper.js');
+global.ipc = null;
 
 class Main {
   init(isDebug) {
@@ -34,7 +35,7 @@ class Main {
 
   initIpc(isDebug) {
     const IPC = require('./app/ipc/ipc.js');
-    var ipc = new IPC();
+    global.ipc = new IPC();
 
     console.log("Initializing IPC!");
     ipc.init(isDebug);
