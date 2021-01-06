@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.ezraproject.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="de.ezraproject.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ezra Project</name>
     <description>
         Ezra Project is a bible study software focussing on topical study based on keywords/tags.
     </description>
-    <author email="contact@ezra-project.net" href="http://cordova.io">
+    <author email="contact@ezra-project.net" href="https://ezra-project.net">
         Tobias Klein
     </author>
     <content src="index.html" />
@@ -20,6 +20,9 @@
         <allow-intent href="market:*" />
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <resource-file src="www/nodejs-project/ezra.sqlite" target="files/www/nodejs-project/ezra.sqlite" />
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
+            <supports-screens android:largeScreens="false" android:normalScreens="false" android:resizeableActivity="false" android:smallScreens="false" android:xlargeScreens="true" />
+        </edit-config>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
