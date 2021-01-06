@@ -16,6 +16,8 @@
    along with Ezra Project. See the file LICENSE.
    If not, see <http://www.gnu.org/licenses/>. */
 
+const PlatformHelper = require('./app/helpers/platform_helper.js');
+
 class Main {
   init(isDebug) {
     // Require the 'cordova-bridge' to enable communications between the
@@ -24,6 +26,13 @@ class Main {
 
     cordova.channel.send('nodejs: main.js loaded');
 
+    this.platformHelper = new PlatformHelper();
+
+    this.initStorage();
+    this.initIpc(isDebug);
+  }
+
+  initIpc(isDebug) {
     const IPC = require('./app/ipc/ipc.js');
     var ipc = new IPC();
 
@@ -42,6 +51,16 @@ class Main {
       console.log('[node] app resumed.');
       cordova.channel.post('engine', 'resumed');
     });
+  }
+
+  initStorage() {
+    const fs = require('fs');
+    var path = this.platformHelper.getUserDataPath();
+
+    if (!fs.existsSync(path)) {
+      console.log("Creating data directory for app at " + path);
+      fs.mkdirSync(path, { recursive: true });
+    }
   }
 }
 
