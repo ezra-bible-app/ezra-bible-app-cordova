@@ -1,12 +1,16 @@
 ext.cdvMinSdkVersion=21
-ext.cdvCompileSdkVersion=26
+ext.cdvCompileSdkVersion=29
 ext.cdvTargetSdkVersion=29
 ext.cdvReleaseSigningPropertiesFile="../../release-signing.properties"
+
+ext.postBuildExtras = {
+    android.defaultConfig.ndk.abiFilters = ['armeabi-v7a', 'arm64-v8a']
+}
 
 android {
     defaultConfig {
         minSdkVersion 21
-        compileSdkVersion 26
+        compileSdkVersion 29
         targetSdkVersion 29
 
         ndk {
