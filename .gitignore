@@ -3,5 +3,6 @@ plugins/
 res/
 platforms/
 
-node_modules
+/node_modules
+/www/nodejs-project/node_modules
 package-lock.json
