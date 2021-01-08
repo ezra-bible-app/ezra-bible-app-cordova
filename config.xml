@@ -2,7 +2,7 @@
 <widget id="de.ezraproject.cordova" version="0.17.0-Beta1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ezra Project</name>
     <description>
-        Ezra Project is a bible study software focussing on topical study based on keywords/tags.
+        Ezra Project is a Bible study software focussing on topical study based on keywords/tags.
     </description>
     <author email="contact@ezra-project.net" href="https://ezra-project.net">Tobias Klein</author>
     <content src="index.html" />
@@ -10,12 +10,7 @@
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
     <platform name="android">
-        <allow-intent href="market:*" />
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <resource-file src="www/nodejs-project/ezra.sqlite" target="files/www/nodejs-project/ezra.sqlite" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
