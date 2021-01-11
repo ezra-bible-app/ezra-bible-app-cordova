@@ -20,6 +20,7 @@
             <application android:requestLegacyExternalStorage="true" />
             <application android:usesCleartextTraffic="true" />
             <application android:resizeableActivity="false" />
+            <application android:debuggable="true" />
         </edit-config>
     </platform>
     <engine name="android" spec="^6.3.0" />
