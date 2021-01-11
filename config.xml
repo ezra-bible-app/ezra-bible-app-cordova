@@ -21,6 +21,7 @@
             <application android:usesCleartextTraffic="true" />
             <application android:resizeableActivity="false" />
             <application android:debuggable="true" />
+            <application android:hasFragileUserData="true" />
         </edit-config>
     </platform>
     <engine name="android" spec="^6.3.0" />
