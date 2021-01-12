@@ -9,4 +9,4 @@ git clone https://github.com/karlkleinpaste/biblesync.git www/nodejs-project/nod
 git -C www/nodejs-project/node_modules/node-sword-interface/biblesync checkout 2.1.0
 
 cordova prepare
-cordova compile
+cordova build --release
