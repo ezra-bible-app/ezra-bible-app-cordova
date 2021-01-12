@@ -16,11 +16,10 @@
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
             <supports-screens android:largeScreens="false" android:normalScreens="false" android:resizeableActivity="false" android:smallScreens="false" android:xlargeScreens="true" />
         </edit-config>
-        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:requestLegacyExternalStorage="true" />
             <application android:usesCleartextTraffic="true" />
             <application android:resizeableActivity="false" />
-            <application android:debuggable="true" />
             <application android:hasFragileUserData="true" />
         </edit-config>
     </platform>
