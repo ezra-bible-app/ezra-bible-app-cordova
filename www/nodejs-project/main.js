@@ -17,6 +17,7 @@
    If not, see <http://www.gnu.org/licenses/>. */
 
 const PlatformHelper = require('./app/helpers/platform_helper.js');
+const IPC = require('./app/ipc/ipc.js');
 global.ipc = null;
 
 class Main {
@@ -24,22 +25,27 @@ class Main {
     // Require the 'cordova-bridge' to enable communications between the
     // Node.js app and the Cordova app.
     global.cordova = require('cordova-bridge');
+    this.platformHelper = new PlatformHelper();
+    this.isDebug = isDebug;
+
+    this.initAppEvents();
+
+    global.ipc = new IPC();
+    global.ipc.initNonPersistentIpc();
 
     cordova.channel.send('nodejs: main.js loaded');
-
-    this.platformHelper = new PlatformHelper();
-
-    this.initStorage();
-    this.initIpc(isDebug);
   }
 
-  initIpc(isDebug) {
-    const IPC = require('./app/ipc/ipc.js');
-    global.ipc = new IPC();
+  initPersistentIpc() {
+    console.log("Initializing persistent IPC!");
 
-    console.log("Initializing IPC!");
-    ipc.init(isDebug);
+    this.initStorage();
+    global.ipc.init(this.isDebug);
 
+    return true;
+  }
+
+  initAppEvents() {
     // Handle the 'pause' and 'resume' events.
     // These are events raised automatically when the app switched to the
     // background/foreground.
