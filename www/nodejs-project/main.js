@@ -28,9 +28,9 @@ class Main {
     this.platformHelper = new PlatformHelper();
     this.isDebug = isDebug;
 
-    //if (!isDebug) {
+    if (!isDebug) {
       this.initSentry();
-    //}
+    }
 
     this.initAppEvents();
 
