@@ -8,6 +8,7 @@
     <content src="index.html" />
     <icon src="ezra-project/icons/ezra-project.png" />
     <access origin="*" />
+    <access origin="sentry.io" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-navigation href="*" />
