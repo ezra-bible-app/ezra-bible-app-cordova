@@ -28,12 +28,21 @@ class Main {
     this.platformHelper = new PlatformHelper();
     this.isDebug = isDebug;
 
+    //if (!isDebug) {
+      this.initSentry();
+    //}
+
     this.initAppEvents();
 
     global.ipc = new IPC();
     global.ipc.initNonPersistentIpc();
 
     cordova.channel.send('nodejs: main.js loaded');
+  }
+
+  initSentry() {
+    global.Sentry = require('@sentry/node/dist');
+    Sentry.init({ dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321', });
   }
 
   initPersistentIpc() {
