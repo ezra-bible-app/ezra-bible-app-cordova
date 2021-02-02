@@ -1,6 +1,6 @@
 {
   "name": "ezra-project-cordova-node-backend",
-  "version": "0.17.0-Beta4",
+  "version": "0.17.0-Beta5",
   "description": "Ezra Project is a bible study software focussing on topical study based on keywords/tags",
   "main": "main.js",
   "scripts": {
