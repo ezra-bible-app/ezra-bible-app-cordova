@@ -16,8 +16,8 @@
    along with Ezra Project. See the file LICENSE.
    If not, see <http://www.gnu.org/licenses/>. */
 
-const PlatformHelper = require('./app/helpers/platform_helper.js');
-const IPC = require('./app/ipc/ipc.js');
+const PlatformHelper = require('./app/lib/platform_helper.js');
+const IPC = require('./app/backend/ipc/ipc.js');
 global.ipc = null;
 
 class Main {
