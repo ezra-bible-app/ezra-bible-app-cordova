@@ -16,7 +16,7 @@
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <resource-file src="www/nodejs-project/ezra.sqlite" target="files/www/nodejs-project/ezra.sqlite" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
-            <supports-screens android:largeScreens="false" android:normalScreens="false" android:resizeableActivity="false" android:smallScreens="false" android:xlargeScreens="true" />
+            <supports-screens android:largeScreens="true" android:normalScreens="false" android:resizeableActivity="false" android:smallScreens="false" android:xlargeScreens="true" />
         </edit-config>
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:requestLegacyExternalStorage="true" />
