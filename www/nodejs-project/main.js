@@ -41,8 +41,16 @@ class Main {
   }
 
   initSentry() {
+    var pjson = require('./package.json');
+    var version = pjson.version;
+    console.log("Configuring Sentry (node.js) with app version: " + version);
+
     global.Sentry = require('@sentry/node/dist');
-    Sentry.init({ dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321', });
+
+    Sentry.init({
+      dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321',
+      release: version
+    });
   }
 
   initPersistentIpc() {
