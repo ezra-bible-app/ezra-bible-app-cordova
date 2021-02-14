@@ -62,6 +62,13 @@ class Main {
     return true;
   }
 
+  initDatabase() {
+    console.log("Initializing database!");
+    global.ipc.initDatabase(this.isDebug);
+
+    return true;
+  }
+
   initAppEvents() {
     // Handle the 'pause' and 'resume' events.
     // These are events raised automatically when the app switched to the
