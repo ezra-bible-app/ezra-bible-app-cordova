@@ -1,8 +1,8 @@
 {
-  "name": "ezra-project-cordova",
-  "displayName": "Ezra Project",
+  "name": "ezra-bible-app",
+  "displayName": "Ezra Bible App",
   "version": "0.17.1",
-  "description": "Ezra Project is a bible study software focussing on topical study based on keywords/tags.",
+  "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

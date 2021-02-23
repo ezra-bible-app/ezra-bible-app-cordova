@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-versionCode="10014" id="de.ezraproject.cordova" version="0.17.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ezra Project</name>
+    <name>Ezra Bible App</name>
     <description>
-        Ezra Project is a Bible study software focussing on topical study based on keywords/tags.
+        Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.
     </description>
-    <author email="contact@ezra-project.net" href="https://ezra-project.net">Tobias Klein</author>
+    <author email="contact@ezra-project.net" href="https://ezra-project.net">EzraBibleSoftware.net</author>
     <content src="index.html" />
     <icon src="ezra-project/icons/ezra-project.png" />
     <access origin="*" />
