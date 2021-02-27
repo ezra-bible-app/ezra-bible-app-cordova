@@ -1,7 +1,7 @@
 {
   "name": "ezra-project-cordova",
   "displayName": "Ezra Project",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "Ezra Project is a bible study software focussing on topical study based on keywords/tags.",
   "main": "index.js",
   "scripts": {
