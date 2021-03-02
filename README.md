@@ -6,7 +6,7 @@ This repository contains the Cordova configuration and re-uses the source code o
 
 [nodejs-mobile](https://code.janeasystems.com/nodejs-mobile), a Node.js runtime for Android and iOS is used to enable a complete re-use of source code between the Electron and the Cordova app of Ezra Project.
 
-The Ezra Project Cordova app is currently being developed with Android as its first target and planned to be released as part of Ezra Project 0.17.0.
+The Ezra Project Cordova app is first available as part of Ezra Project 0.17.0 and you can install it from the [Play Store](https://play.google.com/store/apps/details?id=de.ezraproject.cordova).
 
 ## Build
 
