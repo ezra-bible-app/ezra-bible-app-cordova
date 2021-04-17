@@ -14,6 +14,11 @@
     <allow-navigation href="*" />
     <platform name="android">
         <hook src="hooks/update_build_gradle.js" type="before_build" />
+        <icon src="ezra-bible-app/icons/android/mipmap-mdpi/ezra.png" density="mdpi" />
+        <icon src="ezra-bible-app/icons/android/mipmap-hdpi/ezra.png" density="hdpi" />
+        <icon src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra.png" density="xhdpi" />
+        <icon src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra.png" density="xxhdpi" />
+        <icon src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra.png" density="xxxhdpi" />
         <resource-file src="www/nodejs-project/ezra.sqlite" target="files/www/nodejs-project/ezra.sqlite" />
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
             <supports-screens android:largeScreens="true" android:normalScreens="false" android:resizeableActivity="false" android:smallScreens="false" android:xlargeScreens="true" />
