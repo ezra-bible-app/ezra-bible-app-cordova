@@ -1,7 +1,7 @@
 {
-  "name": "ezra-project-cordova-node-backend",
-  "version": "0.17.2",
-  "description": "Ezra Project is a bible study software focussing on topical study based on keywords/tags",
+  "name": "ezra-bible-app-backend",
+  "version": "0.18.0-Dev",
+  "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags. This is the node-based backend used for the Cordova app.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
     "fs-extra": "^9.0.1",
     "iso-639-3": "^2.2.0",
     "node-addon-api": "^1.7.1",
-    "node-sword-interface": "^0.214.0",
+    "node-sword-interface": "^0.222.0",
     "sequelize": "^5.21.6",
     "sqlite3": "^4.2.0",
     "umzug": "^2.3.0"

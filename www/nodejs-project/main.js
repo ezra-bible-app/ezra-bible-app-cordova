@@ -1,13 +1,13 @@
-/* This file is part of ezra-project-cordova.
+/* This file is part of Ezra Bible App.
 
    Copyright (C) 2019 - 2021 Tobias Klein <contact@ezra-project.net>
 
-   ezra-project-cordova is free software: you can redistribute it and/or modify
+   Ezra Bible App is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 2 of the License, or
    (at your option) any later version.
 
-   ezra-project-cordova is distributed in the hope that it will be useful,
+   Ezra Bible App is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.

@@ -1,3 +1,3 @@
-[submodule "ezra-project"]
-	path = ezra-project
+[submodule "ezra-bible-app"]
+	path = ezra-bible-app
 	url = https://github.com/ezra-project/ezra-project.git
