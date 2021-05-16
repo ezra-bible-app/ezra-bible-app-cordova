@@ -37,7 +37,9 @@ class Main {
     global.ipc = new IPC();
     global.ipc.initNonPersistentIpc();
 
-    cordova.channel.send('nodejs: main.js loaded');
+    const dataDir = cordova.app.datadir();
+
+    cordova.channel.send(`nodejs: main.js loaded / data dir: ${dataDir}`);
   }
 
   initSentry() {
