@@ -55,18 +55,18 @@ class Main {
     });
   }
 
-  initPersistentIpc() {
+  initPersistentIpc(useInternalStorage=false) {
     console.log("Initializing persistent IPC!");
 
-    this.initStorage();
-    global.ipc.init(this.isDebug);
+    this.initStorage(useInternalStorage);
+    global.ipc.init(this.isDebug, undefined, useInternalStorage);
 
     return true;
   }
 
-  initDatabase() {
+  initDatabase(useInternalStorage=false) {
     console.log("Initializing database!");
-    global.ipc.initDatabase(this.isDebug);
+    global.ipc.initDatabase(this.isDebug, useInternalStorage);
 
     return true;
   }
@@ -86,9 +86,9 @@ class Main {
     });
   }
 
-  initStorage() {
+  initStorage(useInternalStorage=false) {
     const fs = require('fs');
-    var path = this.platformHelper.getUserDataPath();
+    var path = this.platformHelper.getUserDataPath(false, useInternalStorage);
 
     if (!fs.existsSync(path)) {
       console.log("Creating data directory for app at " + path);
