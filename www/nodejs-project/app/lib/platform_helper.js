@@ -1,0 +1,1 @@
+../../../../ezra-bible-app/app/lib/platform_helper.js
