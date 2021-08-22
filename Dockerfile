@@ -1,5 +1,4 @@
 FROM debian:bullseye-slim
-#FROM ubuntu:20.04
 
 ### INPUTS ###
 
@@ -51,6 +50,9 @@ RUN sdkmanager "cmake;3.6.4111459"
 COPY ${ANDROID_NDK_ZIP} /root
 RUN mkdir -p ${ANDROID_SDK_ROOT}/ndk && cd ${ANDROID_SDK_ROOT}/ndk && unzip /root/${ANDROID_NDK_ZIP}
 RUN rm /root/${ANDROID_NDK_ZIP}
+# Create symlinks to fix things up for mips64el-linux-android and mipsel-linux-android
+RUN cd ${ANDROID_NDK_HOME}/toolchains && ln -s aarch64-linux-android-4.9 mips64el-linux-android
+RUN cd ${ANDROID_NDK_HOME}/toolchains && ln -s arm-linux-androideabi-4.9 mipsel-linux-android
 
 # Install Gradle
 COPY ${GRADLE_ZIP} /root
@@ -72,6 +74,5 @@ RUN n 14.17.5
 
 # Install Cordova
 RUN npm install -g cordova@7.1.0
-RUN npm install -g cordova-android@6.4.0
 RUN cordova telemetry off
 
