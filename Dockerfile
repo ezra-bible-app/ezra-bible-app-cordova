@@ -1,13 +1,16 @@
-FROM ubuntu:20.04
+FROM debian:bullseye-slim
+#FROM ubuntu:20.04
 
 ### INPUTS ###
 
-# NDK can be downloaded from here: https://androidsdkoffline.blogspot.com/p/android-ndk-side-by-side-direct-download.html
+# NDK can be downloaded from here:
+# https://androidsdkoffline.blogspot.com/p/android-ndk-side-by-side-direct-download.html
+# r21b: https://dl.google.com/android/repository/android-ndk-r21b-linux-x86_64.zip
 # You must have these available in the local folder with exactly these filenames!
 ENV JDK_TAR_FILE=jdk-8u301-linux-x64.tar.gz
 ENV ANDROID_TOOLS_ZIP=commandlinetools-linux-7583922_latest.zip
-ENV ANDROID_NDK_ZIP=android-ndk-r22-linux-x86_64.zip
-ENV ANDROID_NDK_FOLDER=android-ndk-r22
+ENV ANDROID_NDK_ZIP=android-ndk-r21b-linux-x86_64.zip
+ENV ANDROID_NDK_FOLDER=android-ndk-r21b
 ENV GRADLE_ZIP=gradle-6.7.1-bin.zip
 
 # Android API level 29 => Android 10
@@ -41,7 +44,8 @@ RUN yes | sdkmanager --licenses
 
 # Install latest platform tools and the SDK tools for the respective API level
 RUN sdkmanager "platform-tools" "platforms;android-${ANDROID_API_LEVEL}"
-RUN sdkmanager "build-tools;29.0.3"
+RUN sdkmanager "build-tools;30.0.3"
+RUN sdkmanager "cmake;3.6.4111459"
 
 # Install Android NDK
 COPY ${ANDROID_NDK_ZIP} /root
@@ -55,7 +59,7 @@ RUN rm /root/${GRADLE_ZIP}
 ENV PATH=${PATH}:/usr/local/gradle-6.7.1/bin
 
 # Install some standard tools
-RUN apt-get install -y git vim curl sudo
+RUN apt-get install -y git vim curl sudo python build-essential
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -67,5 +71,7 @@ RUN npm install -g n
 RUN n 14.17.5
 
 # Install Cordova
-RUN npm install -g cordova@7.0.0
+RUN npm install -g cordova@7.1.0
+RUN npm install -g cordova-android@6.4.0
+RUN cordova telemetry off
 
