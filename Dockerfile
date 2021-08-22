@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-### INPUTS ###
+############### INPUTS ################
 
 # NDK can be downloaded from here:
 # https://androidsdkoffline.blogspot.com/p/android-ndk-side-by-side-direct-download.html
@@ -15,7 +15,7 @@ ENV GRADLE_ZIP=gradle-6.7.1-bin.zip
 # Android API level 29 => Android 10
 ENV ANDROID_API_LEVEL=29
 
-##############
+#######################################
 
 ENV JAVA_HOME=/usr/local/jdk1.8.0_301
 ENV ANDROID_SDK_ROOT=/usr/local/android_sdk_root
@@ -61,7 +61,7 @@ RUN rm /root/${GRADLE_ZIP}
 ENV PATH=${PATH}:/usr/local/gradle-6.7.1/bin
 
 # Install some standard tools
-RUN apt-get install -y git vim curl sudo python build-essential
+RUN apt-get install -y git vim curl sudo python build-essential cmake
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
