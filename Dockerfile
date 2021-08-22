@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 
 ### INPUTS ###
 
+# NDK can be downloaded from here: https://androidsdkoffline.blogspot.com/p/android-ndk-side-by-side-direct-download.html
 # You must have these available in the local folder with exactly these filenames!
 ENV JDK_TAR_FILE=jdk-8u301-linux-x64.tar.gz
 ENV ANDROID_TOOLS_ZIP=commandlinetools-linux-7583922_latest.zip
