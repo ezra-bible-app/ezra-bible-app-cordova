@@ -61,7 +61,7 @@ RUN rm /root/${GRADLE_ZIP}
 ENV PATH=${PATH}:/usr/local/gradle-6.7.1/bin
 
 # Install some standard tools
-RUN apt-get install -y git vim curl sudo python build-essential cmake
+RUN apt-get install -y git vim curl sudo python build-essential cmake subversion
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
