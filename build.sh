@@ -2,6 +2,7 @@
 
 npm --prefix ezra-bible-app uninstall node-sword-interface
 npm --prefix ezra-bible-app run compile-pug
+npm --prefix ezra-bible-app run commit-info
 npm --prefix ezra-bible-app run bundle
 npm --prefix www/nodejs-project install --ignore-scripts
 
