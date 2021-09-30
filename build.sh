@@ -13,6 +13,8 @@ rm -r $BIBLE_SYNC_DIR
 git clone https://github.com/karlkleinpaste/biblesync.git $BIBLE_SYNC_DIR
 git -C $BIBLE_SYNC_DIR checkout 2.1.0
 
+touch release-signing.properties
+
 cordova prepare
 cordova build
 #cordova build --release
