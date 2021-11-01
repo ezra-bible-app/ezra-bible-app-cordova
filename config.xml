@@ -24,11 +24,15 @@
             <application android:resizeableActivity="false" />
             <application android:hasFragileUserData="true" />
         </edit-config>
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+            <activity android:windowSoftInputMode="adjustResize" />
+        </edit-config>
         <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra_round.png" />
         <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra_round.png" />
         <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra_round.png" />
         <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra_round.png" />
         <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra_round.png" />
+        <preference name="resizeOnFullScreen" value="true" />
     </platform>
     <engine name="android" spec="^6.4.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.4" />
@@ -40,4 +44,5 @@
     <plugin name="cordova-plugin-insomnia" spec="^4.3.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.12" />
     <plugin name="cordova-clipboard" spec="^1.3.0" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.2.0" />
 </widget>
