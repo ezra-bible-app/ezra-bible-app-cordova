@@ -1,4 +1,4 @@
-ext.cdvMinSdkVersion=21
+ext.cdvMinSdkVersion=22
 ext.cdvCompileSdkVersion=30
 ext.cdvTargetSdkVersion=30
 // ext.cdvReleaseSigningPropertiesFile="../../release-signing.properties"
@@ -9,7 +9,7 @@ ext.postBuildExtras = {
 
 android {
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 22
         compileSdkVersion 30
         targetSdkVersion 30
 

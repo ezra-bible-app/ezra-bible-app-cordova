@@ -12,8 +12,8 @@ ENV ANDROID_NDK_ZIP=android-ndk-r21b-linux-x86_64.zip
 ENV ANDROID_NDK_FOLDER=android-ndk-r21b
 ENV GRADLE_ZIP=gradle-6.7.1-bin.zip
 
-# Android API level 29 => Android 10
-ENV ANDROID_API_LEVEL=29
+# Android API level 30 => Android 11
+ENV ANDROID_API_LEVEL=30
 
 #######################################
 
@@ -75,6 +75,6 @@ RUN npm install -g n
 RUN n 14.17.5
 
 # Install Cordova
-RUN npm install -g cordova@7.1.0
+RUN npm install -g cordova@9.0.0
 RUN cordova telemetry off
 
