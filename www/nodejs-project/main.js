@@ -27,6 +27,7 @@ class Main {
     global.cordova = require('cordova-bridge');
     this.platformHelper = new PlatformHelper();
     this.isDebug = isDebug;
+    this.androidVersion = null;
 
     if (!isDebug) {
       this.initSentry();
@@ -58,6 +59,8 @@ class Main {
   initPersistentIpc(androidVersion=undefined) {
     console.log("Initializing persistent IPC!");
 
+    this.androidVersion = androidVersion;
+
     this.initStorage(androidVersion);
     global.ipc.init(this.isDebug, undefined, androidVersion);
 
@@ -71,17 +74,26 @@ class Main {
     return true;
   }
 
+  async closeDatabase() {
+    await global.ipc.closeDatabase();
+  }
+
   initAppEvents() {
     // Handle the 'pause' and 'resume' events.
     // These are events raised automatically when the app switched to the
     // background/foreground.
-    cordova.app.on('pause', (pauseLock) => {
-      console.log('[node] app paused.');
+    cordova.app.on('pause', async (pauseLock) => {
+      console.log('[node] App paused. Closing database!');
+      await this.closeDatabase();
+      console.log('[node] Database closed!');
       pauseLock.release();
     });
 
     cordova.app.on('resume', () => {
-      console.log('[node] app resumed.');
+      console.log('[node] Resume: Re-initializing database.');
+      this.initDatabase(this.androidVersion);
+
+      console.log('[node] App resumed.');
       cordova.channel.post('engine', 'resumed');
     });
   }
