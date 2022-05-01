@@ -12,7 +12,7 @@
     "@sentry/node": "^6.0.1",
     "conf": "^7.1.2",
     "fs-extra": "^9.0.1",
-    "node-sword-interface": "^0.251.0",
+    "node-sword-interface": "^0.252.0",
     "node-html-parser": "^5.2.0",
     "sequelize": "^5.22.4",
     "sqlite3": "^4.2.0",
