@@ -9,7 +9,7 @@
   "author": "Tobias Klein",
   "license": "GPL-2.0+",
   "dependencies": {
-    "@sentry/node": "^6.0.1",
+    "@sentry/node": "^7.5.1",
     "conf": "^7.1.2",
     "fs-extra": "^9.0.1",
     "node-sword-interface": "^0.252.0",
