@@ -33,7 +33,8 @@
       "cordova-plugin-insomnia": {},
       "cordova-plugin-app-version": {},
       "cordova-clipboard": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-file": {}
     },
     "platforms": [
       "android"
