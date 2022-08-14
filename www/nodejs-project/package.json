@@ -11,7 +11,7 @@
   "dependencies": {
     "@sentry/node": "^6.0.1",
     "conf": "^7.1.2",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^10.1.0",
     "node-sword-interface": "^0.253.0",
     "node-html-parser": "^5.2.0",
     "sequelize": "^5.22.4",
