@@ -10,7 +10,7 @@
   "license": "GPL-2.0+",
   "dependencies": {
     "@sentry/node": "^6.0.1",
-    "conf": "^7.1.2",
+    "conf": "^10.2.0",
     "fs-extra": "^9.0.1",
     "node-sword-interface": "^0.253.0",
     "node-html-parser": "^5.2.0",
