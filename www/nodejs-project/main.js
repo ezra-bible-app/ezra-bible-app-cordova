@@ -67,9 +67,9 @@ class Main {
     return true;
   }
 
-  initDatabase(androidVersion=undefined) {
+  initDatabase(androidVersion=undefined, connectionType=undefined) {
     console.log("Initializing database!");
-    global.ipc.initDatabase(this.isDebug, androidVersion);
+    global.ipc.initDatabase(this.isDebug, androidVersion, connectionType);
 
     return true;
   }
