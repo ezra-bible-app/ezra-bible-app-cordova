@@ -39,7 +39,6 @@
       "cordova-plugin-file": {},
       "cordova-universal-links-plugin": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-network-information": {}
     },
     "platforms": [
       "android"
