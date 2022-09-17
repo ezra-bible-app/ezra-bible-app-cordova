@@ -38,7 +38,7 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-file": {},
       "cordova-universal-links-plugin": {},
-      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"
