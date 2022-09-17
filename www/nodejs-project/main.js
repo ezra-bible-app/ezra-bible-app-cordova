@@ -69,6 +69,11 @@ class Main {
 
   initDatabase(androidVersion=undefined, connectionType=undefined) {
     console.log("Initializing database!");
+
+    if (connectionType === undefined) {
+      connectionType = global.connectionType;
+    }
+
     global.ipc.initDatabase(this.isDebug, androidVersion, connectionType);
 
     return true;
