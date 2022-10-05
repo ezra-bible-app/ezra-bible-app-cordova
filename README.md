@@ -6,8 +6,6 @@ This repository contains the Cordova configuration and re-uses the source code o
 
 [nodejs-mobile](https://code.janeasystems.com/nodejs-mobile), a Node.js runtime for Android and iOS is used to enable a complete re-use of source code between the Electron and the Cordova app of Ezra Bible App.
 
-The Ezra Bible App is currently being developed with Android as its first target and planned to be released as part of Ezra Bible App 0.17.0.
-
 ## Installing build requirements
 
 The Build requires Cordova 7.x. This is based on a [requirement of nodejs-mobile](https://code.janeasystems.com/nodejs-mobile/getting-started-cordova). The following guideline assumes that you are working on Linux.
