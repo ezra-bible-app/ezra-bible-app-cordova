@@ -69,6 +69,7 @@ class Main {
 
   initDatabase(androidVersion=undefined, connectionType=undefined) {
     console.log("Initializing database!");
+    console.log(`Connection type: ${connectionType}`);
 
     if (connectionType === undefined) {
       connectionType = global.connectionType;
