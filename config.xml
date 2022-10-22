@@ -31,6 +31,7 @@
         </edit-config>
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
             <activity android:windowSoftInputMode="adjustResize" />
+            <activity android:exported="false" />
         </edit-config>
         <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra_round.png" />
         <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra_round.png" />
