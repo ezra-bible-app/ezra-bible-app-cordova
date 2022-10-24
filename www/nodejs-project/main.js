@@ -48,12 +48,21 @@ class Main {
     var version = pjson.version;
     console.log("Configuring Sentry (node.js) with app version: " + version);
 
-    global.Sentry = require('@sentry/node/dist');
+    try {
+      // Loading Sentry in a try/catch block, because we have observed failures related to this step.
+      // If it fails ... startup is broken. Why did it fail previously? After a sentry upgrade the
+      // path to the sources had changed and the require statement did not work anymore.
 
-    Sentry.init({
-      dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321',
-      release: version
-    });
+      global.Sentry = require('@sentry/node/dist');
+
+      Sentry.init({
+        dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321',
+        release: version
+      });
+    } catch (error) {
+      console.error('Sentry initialization failed with an error!');
+      console.log(error);
+    }
   }
 
   initPersistentIpc(androidVersion=undefined) {
