@@ -16,7 +16,7 @@
     "fs-extra": "^9.0.1",
     "isomorphic-fetch": "^3.0.0",
     "node-html-parser": "^6.1.1",
-    "node-sword-interface": "^0.253.0",
+    "node-sword-interface": "^1.0.1",
     "sequelize": "^5.22.4",
     "sqlite3": "^4.2.0",
     "umzug": "^2.3.0"
