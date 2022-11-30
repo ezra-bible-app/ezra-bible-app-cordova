@@ -14,3 +14,4 @@ updates:
       - dependency-name: "sequelize"
       - dependency-name: "sqlite3"
       - dependency-name: "@sentry/node"
+      - dependency-name: "fs-extra"
