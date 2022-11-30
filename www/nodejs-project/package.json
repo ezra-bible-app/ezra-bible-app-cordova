@@ -13,7 +13,7 @@
     "conf": "^7.1.2",
     "crypto": "^1.0.1",
     "dropbox": "^10.32.0",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^11.1.0",
     "isomorphic-fetch": "^3.0.0",
     "node-html-parser": "^6.1.1",
     "node-sword-interface": "^1.0.2",
