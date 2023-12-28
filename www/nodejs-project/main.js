@@ -19,6 +19,7 @@
 const PlatformHelper = require('./app/lib/platform_helper.js');
 const IPC = require('./app/backend/ipc/ipc.js');
 global.ipc = null;
+global.sendCrashReports = true;
 
 class Main {
   init(isDebug) {
@@ -57,7 +58,8 @@ class Main {
 
       Sentry.init({
         dsn: 'https://977e321b83ec4e47b7d28ffcbdf0c6a1@sentry.io/1488321',
-        release: version
+        release: version,
+        beforeSend: (event) => global.sendCrashReports ? event : null
       });
     } catch (error) {
       console.error('Sentry initialization failed with an error!');
