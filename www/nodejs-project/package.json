@@ -10,7 +10,7 @@
   "license": "GPL-2.0+",
   "dependencies": {
     "@sentry/node": "^7.92.0",
-    "conf": "^7.1.2",
+    "conf": "^13.0.1",
     "crypto": "^1.0.1",
     "dropbox": "^10.32.0",
     "fs-extra": "^9.0.1",
