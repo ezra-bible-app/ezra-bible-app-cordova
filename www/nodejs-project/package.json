@@ -2,7 +2,7 @@
   "name": "ezra-bible-app-backend",
   "version": "1.15.0-Dev",
   "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags. This is the node-based backend used for the Cordova app.",
-  "main": "main.js",
+  "main": "cordova_main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
