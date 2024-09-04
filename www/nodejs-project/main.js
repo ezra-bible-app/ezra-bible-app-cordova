@@ -78,7 +78,7 @@ class Main {
     return true;
   }
 
-  initDatabase(androidVersion=undefined, connectionType=undefined) {
+  async initDatabase(androidVersion=undefined, connectionType=undefined) {
     console.log("Initializing database!");
     console.log(`Connection type: ${connectionType}`);
 
@@ -86,9 +86,9 @@ class Main {
       connectionType = global.connectionType;
     }
 
-    global.ipc.initDatabase(this.isDebug, androidVersion, connectionType);
+    let initDbResult = await global.ipc.initDatabase(this.isDebug, androidVersion, connectionType);
 
-    return true;
+    return initDbResult;
   }
 
   async closeDatabase() {
