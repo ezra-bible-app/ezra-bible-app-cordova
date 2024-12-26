@@ -1,1 +1,0 @@
-../../../ezra-bible-app/app/frontend/platform_init.js
