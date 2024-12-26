@@ -11,4 +11,4 @@ git -C www/nodejs-project/node_modules/node-sword-interface/biblesync checkout 2
 
 cordova prepare
 cordova build
-#cordova build --release
+#cordova build --release -- --packageType=apk
