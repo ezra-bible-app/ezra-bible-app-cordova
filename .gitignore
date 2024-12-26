@@ -1,3 +1,7 @@
+# Ignore settings folders
+.vscode
+.idea
+
 # Cordova Global
 plugins/
 res/
