@@ -24,7 +24,7 @@
     "cordova-plugin-is-debug": "^1.0.0",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-statusbar": "^3.0.0",
-    "@red-mobile/nodejs-mobile-cordova": "^3.4.0"
+    "@red-mobile/nodejs-mobile-cordova": "^3.4.1"
   },
   "cordova": {
     "plugins": {
