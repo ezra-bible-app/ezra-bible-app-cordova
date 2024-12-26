@@ -41,7 +41,7 @@
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarOverlaysWebView" value="false" />
     </platform>
-    <engine name="android" spec="^6.4.0" />
+    <engine name="android" spec="^13.0.0" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
     <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />
