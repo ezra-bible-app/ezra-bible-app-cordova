@@ -2,11 +2,13 @@ module.exports = function (context) {
     if (context.opts.cordova.platforms.indexOf('android') < 0) {
         return;
     }
-    console.log("Starting gradle modifications");
+
+    console.log("Copying build-extras.gradle to platforms/android/app");
     const path = require('path');
     const fs = require('fs');
-    const gradlePath = path.join(context.opts.projectRoot, 'platforms/android/build-extras.gradle');
+    const gradlePath = path.join(context.opts.projectRoot, 'platforms/android/app/build-extras.gradle');
     const gradleExtraPath = path.join(context.opts.projectRoot, 'build-extras.gradle');
+
     return new Promise(function (resolve, reject) {
         fs.copyFile(gradleExtraPath, gradlePath, function (err) {
             if (err) {
