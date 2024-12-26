@@ -53,7 +53,7 @@ Follow the [instructions in the Cordova install guide](https://cordova.apache.or
 
  2) Run the script `build.sh`
 
-## Deploying the app to a device
+## 7) Deploying the app to a device
 
 Connect the Android device with a USB cable and make sure it is listed when invoking `adb devices`.
 
