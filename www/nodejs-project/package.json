@@ -9,7 +9,7 @@
   "author": "Tobias Klein",
   "license": "GPL-2.0+",
   "dependencies": {
-    "@sentry/node": "^7.92.0",
+    "@sentry/node": "^6.0.1",
     "conf": "^7.1.2",
     "crypto": "^1.0.1",
     "dropbox": "^10.32.0",
