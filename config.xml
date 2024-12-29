@@ -32,16 +32,19 @@
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
             <activity android:windowSoftInputMode="adjustResize" />
             <activity android:exported="true" />
-            <activity android:theme="@style/Theme.AppCompat.NoActionBar" />
+            <activity android:theme="@style/Theme.App.SplashScreen"></activity>
         </edit-config>
+
         <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra_round.png" />
         <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra_round.png" />
         <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra_round.png" />
         <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra_round.png" />
         <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra_round.png" />
+        
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarOverlaysWebView" value="false" />
-        <preference name="FadeSplashScreenDuration" value="0"/>
+        <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android.png" />
     </platform>
     <engine name="android" spec="^13.0.0" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
