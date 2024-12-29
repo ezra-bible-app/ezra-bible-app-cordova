@@ -6,7 +6,7 @@
     </description>
     <author email="contact@ezrabibleapp.net" href="https://ezrabibleapp.net">EzraBibleApp.net</author>
     <content src="index.html" />
-    <icon src="ezra-bible-app/icons/ezra.png" />
+    <icon src="ezra-bible-app/icons/ezra-android.png" />
     <access origin="*" />
     <access origin="sentry.io" />
     <allow-intent href="http://*/*" />
@@ -20,32 +20,36 @@
     <platform name="android">
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <hook src="hooks/deploy_app_sources.js" type="before_build" />
+
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
             <supports-screens android:largeScreens="true" android:normalScreens="true" android:resizeableActivity="false" android:smallScreens="true" android:xlargeScreens="true" />
         </edit-config>
+
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:requestLegacyExternalStorage="true" />
             <application android:usesCleartextTraffic="true" />
             <application android:resizeableActivity="false" />
             <application android:hasFragileUserData="true" />
         </edit-config>
+
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
             <activity android:windowSoftInputMode="adjustResize" />
             <activity android:exported="true" />
             <activity android:theme="@style/Theme.App.SplashScreen"></activity>
         </edit-config>
 
-        <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra_round.png" />
-        <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra_round.png" />
-        <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra_round.png" />
-        <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra_round.png" />
-        <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra_round.png" />
+        <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra.png" />
+        <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra.png" />
+        <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra.png" />
+        <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra.png" />
+        <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra.png" />
         
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android-launch.png" />
     </platform>
+
     <engine name="android" spec="^13.0.0" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
