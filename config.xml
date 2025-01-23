@@ -44,6 +44,7 @@
         <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra.png" />
         <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra.png" />
         
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
