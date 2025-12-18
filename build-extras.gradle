@@ -6,8 +6,8 @@ ext.cdvReleaseSigningPropertiesFile="../../../release-signing.properties"
 android {
     defaultConfig {
         minSdkVersion 24
-        compileSdkVersion 34
-        targetSdkVersion 34
+        compileSdkVersion 35
+        targetSdkVersion 35
         ndkVersion "27.2.12479018"
 
         ndk {
