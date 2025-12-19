@@ -1,6 +1,6 @@
 ext.cdvMinSdkVersion=24
-ext.cdvCompileSdkVersion=34
-ext.cdvTargetSdkVersion=34
+ext.cdvCompileSdkVersion=35
+ext.cdvTargetSdkVersion=35
 ext.cdvReleaseSigningPropertiesFile="../../../release-signing.properties"
 
 android {
