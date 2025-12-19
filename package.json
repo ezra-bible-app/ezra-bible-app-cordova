@@ -25,8 +25,7 @@
     "cordova-plugin-ionic-keyboard": "github:itbeyond/cordova-plugin-ionic-keyboard",
     "cordova-plugin-is-debug": "^1.0.0",
     "cordova-plugin-network-information": "^2.0.2",
-    "cordova-plugin-statusbar": "^3.0.0",
-    "@red-mobile/nodejs-mobile-cordova": "^3.4.2"
+    "cordova-plugin-statusbar": "^3.0.0"
   },
   "cordova": {
     "plugins": {
@@ -51,5 +50,7 @@
       "android"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#3b569c399ae07635416c20ad18a2c4511d3bcc29"
+  }
 }
