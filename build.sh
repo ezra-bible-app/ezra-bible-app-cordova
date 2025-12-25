@@ -1,10 +1,34 @@
 #!/bin/sh
 
 # Usage:
-#   ./build.sh          # debug build (default)
-#   ./build.sh release  # release build
+#   ./build.sh                 # debug build (default)
+#   ./build.sh release         # release build
+#   ./build.sh clean           # clean platforms and plugins, then debug build
+#   ./build.sh clean release   # clean platforms and plugins, then release build
 
-MODE=${1:-debug}
+MODE=debug
+CLEAN=false
+
+# Parse arguments: optional 'clean' and optional build mode (debug/release)
+for arg in "$@"; do
+  case "$arg" in
+    clean)
+      CLEAN=true
+      ;;
+    release)
+      MODE=release
+      ;;
+    debug)
+      MODE=debug
+      ;;
+  esac
+done
+
+# Perform clean if requested
+if [ "$CLEAN" = true ]; then
+  echo "Cleaning Cordova platforms and plugins directories."
+  rm -rf platforms plugins
+fi
 
 rm -rf www/node_modules
 rm -rf www/nodejs-project/node_modules
