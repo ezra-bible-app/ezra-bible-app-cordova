@@ -9,7 +9,7 @@ The specific Cordova plugin that integrates this runtime is called [nodejs-mobil
 
 ## Installing build requirements
 
-The Build requires Cordova 12.x. This is based on a [requirement of nodejs-mobile-cordova](https://github.com/okhiroyuki/nodejs-mobile-cordova?tab=readme-ov-file#requirements). The following guideline assumes that you are working on Linux.
+The Build requires Cordova 13.x. This is based on a [requirement of nodejs-mobile-cordova](https://github.com/okhiroyuki/nodejs-mobile-cordova?tab=readme-ov-file#requirements). The following guideline assumes that you are working on Linux.
 
 ### 1) Install Cordova Requirements
 
@@ -24,13 +24,13 @@ b) Install the Android Studio.
 
 a) Open the SDK Manager from the Android Studio start dialog.
 
-b) Install the SDK packages for the API level we currently target (currently Android API level 34 / Android 14).
+b) Install the SDK packages for the API level we currently target (currently Android API level 35 / Android 15).
 
 c) Install the Android ndk version 27.2.12479018
 
 ### 3) Install Gradle
 
-Install Gradle (version 7.6) by following the [instructions here](https://gradle.org/install/#manually).
+Install Gradle (version 8.12) by following the [instructions here](https://gradle.org/install/#manually).
 
 ### 4) Configure environment variables
 
