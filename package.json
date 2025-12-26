@@ -46,11 +46,13 @@
       "@red-mobile/nodejs-mobile-cordova": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   },
   "devDependencies": {
     "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#445533c970c21a2bb06c2ed49ca4ad681bb7e8db",
-    "cordova-android": "^14.0.1"
+    "cordova-android": "^14.0.1",
+    "cordova-ios": "^7.1.0"
   }
 }
