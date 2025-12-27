@@ -37,9 +37,9 @@ function copy(root, source, targetRoot) {
 }
 
 module.exports = function (context) {
-    if (context.opts.cordova.platforms.indexOf('android') < 0) {
+    /*if (context.opts.cordova.platforms.indexOf('android') < 0) {
         return;
-    }
+    }*/
 
     const wwwSources = [
       'app/frontend/platform_init.js',
