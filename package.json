@@ -14,7 +14,6 @@
     "cordova-clipboard": "^1.3.0",
     "cordova-plugin-android-permissions": "^1.1.5",
     "cordova-plugin-app-version": "^0.1.14",
-    "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-deeplinks": "~1.1.1",
     "cordova-plugin-device": "^3.0.0",
     "cordova-plugin-fonts": "^0.6.5",
@@ -28,7 +27,6 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-console": {},
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-is-debug": {},
       "cordova-plugin-fullscreen": {},
@@ -51,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#445533c970c21a2bb06c2ed49ca4ad681bb7e8db",
+    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#71e00c7",
     "cordova-android": "^14.0.1",
     "cordova-ios": "^7.1.0"
   }
