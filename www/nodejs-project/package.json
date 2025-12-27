@@ -9,13 +9,12 @@
   "author": "Tobias Klein",
   "license": "GPL-2.0+",
   "dependencies": {
-    "@sentry/node": "^8.54.0",
     "conf": "^7.1.2",
     "crypto": "^1.0.1",
     "dropbox": "^10.32.0",
     "fs-extra": "^9.0.1",
     "isomorphic-fetch": "^3.0.0",
-    "node-sword-interface": "^1.0.53",
+    "node-sword-interface": "^1.0.54",
     "sequelize": "^5.22.4",
     "sqlite3": "^4.2.0",
     "umzug": "^2.3.0"
