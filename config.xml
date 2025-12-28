@@ -18,6 +18,13 @@
             <path event="launchedAppFromLink" url="*" />
         </host>
     </universal-links>
+
+    <feature name="Custom URL scheme">
+      <param name="id" value="cordova-plugin-customurlscheme" />
+      <param name="url" value="https://github.com/EddyVerbruggen/Custom-URL-scheme.git" />
+      <variable name="URL_SCHEME" value="ezrabibleapp" />
+    </feature>
+
     <platform name="android">
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <hook src="hooks/deploy_app_sources.js" type="before_build" />
