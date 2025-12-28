@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Usage:
-#   ./build.sh -p android              # debug build for android
-#   ./build.sh -p ios                  # debug build for ios
-#   ./build.sh -p android -m release   # release build for android
-#   ./build.sh -p ios -m release       # release build for ios
-#   ./build.sh -c -p android           # clean and build android
-#   ./build.sh -c -p ios               # clean and build ios
+usage() {
+  echo "Usage:"
+  echo "  ./build.sh -p android              # debug build for android"
+  echo "  ./build.sh -p ios                  # debug build for ios"
+  echo "  ./build.sh -p android -m release   # release build for android"
+  echo "  ./build.sh -p ios -m release       # release build for ios"
+  echo "  ./build.sh -c -p android           # clean and build android"
+  echo "  ./build.sh -c -p ios               # clean and build ios"
+  exit 0
+}
 
 MODE=debug
 CLEAN=false
@@ -26,6 +29,9 @@ while [ "$#" -gt 0 ]; do
     -p|--platform)
       PLATFORM="$2"
       shift 2
+      ;;
+    -h|--help)
+      usage
       ;;
     *)
       echo "Unknown parameter: $1"
@@ -52,6 +58,9 @@ if [ "$CLEAN" = true ]; then
   
   if [ "$PLATFORM" = "ios" ]; then
     cordova platform add ios@7.1.0
+    echo "iOS platform added. Exiting to allow manual tinkering."
+    echo "Run './build.sh -p ios' (without -c) to build."
+    exit 0
   elif [ "$PLATFORM" = "android" ]; then
     cordova platform add android@14.0.1
   fi
