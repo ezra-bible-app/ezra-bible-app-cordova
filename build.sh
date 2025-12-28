@@ -1,33 +1,60 @@
-#!/bin/sh
+#!/bin/bash
 
 # Usage:
-#   ./build.sh                 # debug build (default)
-#   ./build.sh release         # release build
-#   ./build.sh clean           # clean platforms and plugins, then debug build
-#   ./build.sh clean release   # clean platforms and plugins, then release build
+#   ./build.sh -p android              # debug build for android
+#   ./build.sh -p ios                  # debug build for ios
+#   ./build.sh -p android -m release   # release build for android
+#   ./build.sh -p ios -m release       # release build for ios
+#   ./build.sh -c -p android           # clean and build android
+#   ./build.sh -c -p ios               # clean and build ios
 
 MODE=debug
 CLEAN=false
+PLATFORM=""
 
-# Parse arguments: optional 'clean' and optional build mode (debug/release)
-for arg in "$@"; do
-  case "$arg" in
-    clean)
+# Parse arguments
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -c|--clean)
       CLEAN=true
+      shift
       ;;
-    release)
-      MODE=release
+    -m|--mode)
+      MODE="$2"
+      shift 2
       ;;
-    debug)
-      MODE=debug
+    -p|--platform)
+      PLATFORM="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown parameter: $1"
+      exit 1
       ;;
   esac
 done
 
+if [ -z "$PLATFORM" ]; then
+  echo "Error: Please specify a platform (-p android or -p ios)."
+  exit 1
+fi
+
+# Check if critical directories are missing
+if [ ! -d "platforms" ] || [ ! -d "plugins" ] || [ ! -d "node_modules" ]; then
+  echo "One or more critical directories (platforms, plugins, node_modules) are missing. Forcing clean build."
+  CLEAN=true
+fi
+
 # Perform clean if requested
 if [ "$CLEAN" = true ]; then
-  echo "Cleaning Cordova platforms and plugins directories."
-  rm -rf platforms plugins
+  echo "Cleaning Cordova platforms, plugins, node_modules directories."
+  rm -rf platforms plugins node_modules
+  
+  if [ "$PLATFORM" = "ios" ]; then
+    cordova platform add ios@7.1.0
+  elif [ "$PLATFORM" = "android" ]; then
+    cordova platform add android@14.0.1
+  fi
 fi
 
 rm -rf www/node_modules
@@ -42,7 +69,7 @@ npm --prefix ezra-bible-app run commit-info
 # Create JavaScript distribution (using Browserify)
 npm --prefix ezra-bible-app run bundle
 npm --prefix www/nodejs-project install --ignore-scripts
-./ezra-bible-app/node_modules/.bin/node-prune www/nodejs-project/node_modules
+./ezra-bible-app/node_modules/.bin/clean-modules clean -y ./www/nodejs-project/node_modules/
 
 # Remove all directories under www whose path contains '.bin'
 # For some reason those directories cause Cordova build issues
@@ -51,13 +78,22 @@ find www -type d -name '*.bin*' -prune -exec rm -rf {} +
 git clone https://github.com/karlkleinpaste/biblesync.git www/nodejs-project/node_modules/node-sword-interface/biblesync
 git -C www/nodejs-project/node_modules/node-sword-interface/biblesync checkout 2.1.0
 
-# Prepare Cordova project (installs platform, plugins, etc.)
-cordova prepare
+echo ""
 
-if [ "$MODE" = "release" ]; then
-  echo "Running Cordova release build..."
-  cordova build --release -- --packageType=apk
-else
-  echo "Running Cordova debug build..."
-  cordova build
+if [ "$PLATFORM" = "android" ]; then
+  if [ "$MODE" = "release" ]; then
+    echo "Running Cordova release build for Android..."
+    cordova build android --release -- --packageType=apk
+  else
+    echo "Running Cordova debug build for Android..."
+    cordova build android
+  fi
+elif [ "$PLATFORM" = "ios" ]; then
+  if [ "$MODE" = "release" ]; then
+    echo "Running Cordova release build for iOS..."
+    cordova build ios --release
+  else
+    echo "Running Cordova debug build for iOS..."
+    cordova build ios -- --developmentTeam="62TW7J7JJ7"
+  fi
 fi
