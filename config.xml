@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="10061" id="net.ezrabibleapp.cordova" version="1.18.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="10061" id="net.ezrabibleapp.cordova" version="1.19.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>EzraBibleApp</name>
-    <displayName>Ezra Bible App</displayName>
     <description>
         Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.
     </description>
@@ -40,6 +39,10 @@
             <activity android:theme="@style/Theme.App.SplashScreen"></activity>
         </edit-config>
 
+        <edit-config file="app/src/main/res/values/strings.xml" mode="merge" target="/resources/string[@name='app_name']">
+            <string name="app_name">Ezra Bible App</string>
+        </edit-config>
+
         <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra.png" />
         <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra.png" />
         <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra.png" />
@@ -54,7 +57,7 @@
     </platform>
 
     <platform name="ios">
-        <hook src="hooks/deploy_app_sources.js" type="before_build" />
+        <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
 
         <!-- See https://developer.apple.com/library/archive/qa/qa1686/_index.html -->
         <icon width="1024" height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024.png" />
@@ -70,6 +73,10 @@
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#000000" />
+
+        <edit-config file="*-Info.plist" mode="merge" target="CFBundleDisplayName">
+            <string>Ezra Bible App</string>
+        </edit-config>
     </platform>
 
     <engine name="android" spec="^14.0.1" />
