@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "62TW7J7JJ7.net.ezrabibleapp.cordova",
+        "paths": [
+          "*",
+          "/"
+        ]
+      }
+    ]
+  }
+}
