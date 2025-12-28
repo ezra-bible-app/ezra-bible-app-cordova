@@ -56,7 +56,9 @@
         <hook src="hooks/deploy_app_sources.js" type="before_build" />
         <icon height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024.png" width="1024" />
         <preference name="resizeOnFullScreen" value="true" />
+        <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#000000" />
     </platform>
 
     <engine name="android" spec="^14.0.1" />
