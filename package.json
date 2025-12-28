@@ -41,7 +41,10 @@
       "cordova-plugin-deeplinks": {},
       "cordova-plugin-fonts": {},
       "cordova-plugin-device": {},
-      "@red-mobile/nodejs-mobile-cordova": {}
+      "@red-mobile/nodejs-mobile-cordova": {},
+      "cordova-plugin-customurlscheme": {
+        "URL_SCHEME": "ezrabible"
+      }
     },
     "platforms": [
       "android",
@@ -51,6 +54,7 @@
   "devDependencies": {
     "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#71e00c7",
     "cordova-android": "^14.0.1",
-    "cordova-ios": "^7.1.0"
+    "cordova-ios": "^7.1.0",
+    "cordova-plugin-customurlscheme": "^5.0.2"
   }
 }
