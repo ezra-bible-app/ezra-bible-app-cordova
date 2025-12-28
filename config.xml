@@ -19,12 +19,6 @@
         </host>
     </universal-links>
 
-    <feature name="Custom URL scheme">
-      <param name="id" value="cordova-plugin-customurlscheme" />
-      <param name="url" value="https://github.com/EddyVerbruggen/Custom-URL-scheme.git" />
-      <variable name="URL_SCHEME" value="ezrabibleapp" />
-    </feature>
-
     <platform name="android">
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <hook src="hooks/deploy_app_sources.js" type="before_build" />
@@ -60,7 +54,7 @@
     </platform>
 
     <platform name="ios">
-        <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
+        <hook src="hooks/deploy_app_sources.js" type="before_build" />
 
         <!-- See https://developer.apple.com/library/archive/qa/qa1686/_index.html -->
         <icon width="1024" height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024.png" />
