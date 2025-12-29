@@ -58,6 +58,7 @@
 
     <platform name="ios">
         <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
+        <hook src="hooks/add_ios_cleanup_build_phase.js" type="after_prepare" />
 
         <!-- See https://developer.apple.com/library/archive/qa/qa1686/_index.html -->
         <icon width="1024" height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024_no_alpha.png" />
