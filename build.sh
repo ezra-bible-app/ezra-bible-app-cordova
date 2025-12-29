@@ -7,7 +7,7 @@ usage() {
   echo "  ./build.sh -p android -m release   # release build for android"
   echo "  ./build.sh -p ios -m release       # release build for ios"
   echo "  ./build.sh -c -p android           # clean and build android"
-  echo "  ./build.sh -c -p ios               # clean and build ios"
+  echo "  ./build.sh -c -p ios               # clean and setup ios"
   exit 0
 }
 
@@ -41,7 +41,7 @@ while [ "$#" -gt 0 ]; do
 done
 
 if [ -z "$PLATFORM" ]; then
-  echo "Error: Please specify a platform (-p android or -p ios)."
+  usage
   exit 1
 fi
 
@@ -49,21 +49,6 @@ fi
 if [ ! -d "platforms" ] || [ ! -d "plugins" ] || [ ! -d "node_modules" ]; then
   echo "One or more critical directories (platforms, plugins, node_modules) are missing. Forcing clean build."
   CLEAN=true
-fi
-
-# Perform clean if requested
-if [ "$CLEAN" = true ]; then
-  echo "Cleaning Cordova platforms, plugins, node_modules directories."
-  rm -rf platforms plugins node_modules
-  
-  if [ "$PLATFORM" = "ios" ]; then
-    cordova platform add ios@7.1.0
-    echo "iOS platform added. Exiting to allow manual tinkering."
-    echo "Run './build.sh -p ios' (without -c) to build."
-    exit 0
-  elif [ "$PLATFORM" = "android" ]; then
-    cordova platform add android@14.0.1
-  fi
 fi
 
 rm -rf www/node_modules
@@ -86,6 +71,25 @@ find www -type d -name '*.bin*' -prune -exec rm -rf {} +
 
 git clone https://github.com/karlkleinpaste/biblesync.git www/nodejs-project/node_modules/node-sword-interface/biblesync
 git -C www/nodejs-project/node_modules/node-sword-interface/biblesync checkout 2.1.0
+
+echo ""
+
+# Perform clean if requested
+if [ "$CLEAN" = true ]; then
+  echo "Cleaning Cordova platforms, plugins, node_modules directories."
+  rm -rf platforms plugins node_modules
+  
+  if [ "$PLATFORM" = "ios" ]; then
+    cordova platform add ios@7.1.0
+    cordova prepare ios
+
+    echo "iOS platform added. Exiting to allow manual tinkering."
+    echo "Run './build.sh -p ios' (without -c) to build."
+    exit 0
+  elif [ "$PLATFORM" = "android" ]; then
+    cordova platform add android@14.0.1
+  fi
+fi
 
 echo ""
 
