@@ -60,6 +60,8 @@
         <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
         <hook src="hooks/add_ios_cleanup_build_phase.js" type="after_prepare" />
 
+        <preference name="deployment-target" value="13.0" />
+
         <!-- See https://developer.apple.com/library/archive/qa/qa1686/_index.html -->
         <icon width="1024" height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024_no_alpha.png" />
         <icon width="180" height="180" src="ezra-bible-app/icons/mac-os-source/ezra_180x180.png" />
@@ -78,7 +80,7 @@
         <edit-config file="*-Info.plist" mode="merge" target="CFBundleDisplayName">
             <string>Ezra Bible App</string>
         </edit-config>
-    </platform>
+    </platform>∫
 
     <engine name="android" spec="^14.0.1" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
