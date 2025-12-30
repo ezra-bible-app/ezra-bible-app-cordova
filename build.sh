@@ -63,6 +63,7 @@ npm --prefix ezra-bible-app run commit-info
 # Create JavaScript distribution (using Browserify)
 npm --prefix ezra-bible-app run bundle
 npm --prefix www/nodejs-project install --ignore-scripts
+(cd www/nodejs-project && npx patch-package)
 ./ezra-bible-app/node_modules/.bin/clean-modules clean -y ./www/nodejs-project/node_modules/
 
 # Remove all directories under www whose path contains '.bin'
@@ -78,6 +79,8 @@ echo ""
 if [ "$CLEAN" = true ]; then
   echo "Cleaning Cordova platforms, plugins, node_modules directories."
   rm -rf platforms plugins node_modules
+
+  npm install cordova@13.0.0
   
   if [ "$PLATFORM" = "ios" ]; then
     cordova platform add ios@7.1.0
