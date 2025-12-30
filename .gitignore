@@ -12,5 +12,6 @@ www/*
 www/nodejs-project/**
 !www/nodejs-project
 !www/nodejs-project/package.json
+!www/nodejs-project/patches
 
 release-signing.properties
