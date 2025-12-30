@@ -1,0 +1,5 @@
+#!/bin/bash
+      # Helper script for Gradle to call npm on macOS in case it is not found
+      export PATH=$PATH:/Users/tobi/Dev/ezra-bible-app-cordova/node_modules/nodejs-mobile-react-native/node_modules/.bin:/Users/tobi/Dev/ezra-bible-app-cordova/node_modules/node_modules/.bin:/Users/tobi/Dev/ezra-bible-app-cordova/node_modules/.bin:/Users/tobi/Dev/node_modules/.bin:/Users/tobi/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/Users/tobi/.nvm/versions/node/v22.12.0/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/Users/tobi/.nvm/versions/node/v22.12.0/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/lib/ruby/gems/3.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/tobi/.vscode-server/cli/servers/Stable-bf9252a2fb45be6893dd8870c0bf37e2e1766d61/server/bin/remote-cli:/Users/tobi/.nvm/versions/node/v22.12.0/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/lib/ruby/gems/3.2.0/bin
+      npm $@
+    
