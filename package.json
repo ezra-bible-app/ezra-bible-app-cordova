@@ -54,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#eebed43e",
+    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#07614591",
     "cordova-ios": "^7.1.0",
     "cordova-plugin-ionic-keyboard": "github:itbeyond/cordova-plugin-ionic-keyboard",
     "xcode": "^3.0.1"
