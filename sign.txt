@@ -1,0 +1,19 @@
+
+# ---------------------------------------------------------
+# NEW: Code signing for native modules
+# ---------------------------------------------------------
+
+echo "Signing .node binaries..."
+
+# Use the identity assigned to the project in Xcode
+if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" ]; then
+  # Find all compiled .node files in the project folder
+  find "$CODESIGNING_FOLDER_PATH/www/nodejs-project/" -name "*.node" -type f | while read NODE_FILE; do
+    echo "Signing: $NODE_FILE"
+    /usr/bin/codesign --force --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --preserve-metadata=identifier,entitlements,flags --timestamp=none "$NODE_FILE"
+  done
+else
+  echo "Error: EXPANDED_CODE_SIGN_IDENTITY is not set. Skipping code signing."
+fi
+
+echo "Code signing complete."
