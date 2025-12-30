@@ -34,7 +34,7 @@ module.exports = function(context) {
             const buildPhases = myProj.hash.project.objects.PBXShellScriptBuildPhase;
             if (buildPhases) {
                 for (const key in buildPhases) {
-                    if (buildPhases[key].comment === buildPhaseName) {
+                    if (buildPhases[key] === buildPhaseName) {
                         // console.log('Build phase "' + buildPhaseName + '" already exists.');
                         resolve();
                         return;
