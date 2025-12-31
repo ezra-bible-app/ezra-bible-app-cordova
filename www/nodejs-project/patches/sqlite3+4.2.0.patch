@@ -11,3 +11,151 @@ index 61b3085..dbdc9ef 100755
          }
        ],
        'direct_dependent_settings': {
+diff --git a/node_modules/sqlite3/binding.gyp b/node_modules/sqlite3/binding.gyp
+index 019df41..d96a37e 100644
+--- a/node_modules/sqlite3/binding.gyp
++++ b/node_modules/sqlite3/binding.gyp
+@@ -9,6 +9,20 @@
+       "target_name": "<(module_name)",
+       "include_dirs": ["<!(node -e \"require('nan')\")"],
+       "conditions": [
++        ["is_ios==1", {
++            "type": "shared_library",
++            "xcode_settings": {
++              "SDKROOT": "iphoneos",
++              "IPHONEOS_DEPLOYMENT_TARGET": "13.0",
++              "OTHER_LDFLAGS": [
++                "-dynamiclib",
++                "-install_name @rpath/node_sqlite3.framework/node_sqlite3",
++                "-undefined dynamic_lookup"
++              ],
++              "MACH_O_TYPE": "mh_dylib",
++              "PRODUCT_TYPE": "com.apple.product-type.framework"
++            }
++        }],
+         ["sqlite != 'internal'", {
+             "include_dirs": [ "<(sqlite)/include" ],
+             "libraries": [
+@@ -48,6 +62,28 @@
+             "destination": "<(module_path)"
+           }
+       ]
++    },
++    {
++        "target_name": "node_sqlite3.framework",
++        "type": "none",
++        "dependencies": [ "<(module_name)" ],
++        "conditions": [
++            ["is_ios==1", {
++                "actions": [
++                    {
++                        "action_name": "create_framework",
++                        "inputs": [],
++                        "outputs": ["<(PRODUCT_DIR)/node_sqlite3.framework"],
++                        "action": [
++                            "sh",
++                            "scripts/ios_framework_postbuild.sh",
++                            "<(PRODUCT_DIR)",
++                            "<(module_name)"
++                        ]
++                    }
++                ]
++            }]
++        ]
+     }
+   ]
+ }
+diff --git a/node_modules/sqlite3/deps/common-sqlite.gypi b/node_modules/sqlite3/deps/common-sqlite.gypi
+index 13c73ea..2c43b0c 100644
+--- a/node_modules/sqlite3/deps/common-sqlite.gypi
++++ b/node_modules/sqlite3/deps/common-sqlite.gypi
+@@ -2,12 +2,19 @@
+   'variables': {
+       'sqlite_version%':'3310100',
+       "toolset%":'',
++      "is_ios%": "<!(python3 -c \"import os; print(1 if os.environ.get('PLATFORM') == 'ios' or os.environ.get('SDKROOT') and 'iPhone' in os.environ.get('SDKROOT') else 0)\")"
+   },
+   'target_defaults': {
+     'default_configuration': 'Release',
+     'conditions': [
+       [ 'toolset!=""', {
+         'msbuild_toolset':'<(toolset)'
++      }],
++      ['is_ios==1', {
++        'xcode_settings': {
++          'SDKROOT': 'iphoneos',
++          'IPHONEOS_DEPLOYMENT_TARGET': '13.0'
++        }
+       }]
+     ],
+     'configurations': {
+diff --git a/node_modules/sqlite3/scripts/ios_framework_postbuild.sh b/node_modules/sqlite3/scripts/ios_framework_postbuild.sh
+new file mode 100755
+index 0000000..a4a4069
+--- /dev/null
++++ b/node_modules/sqlite3/scripts/ios_framework_postbuild.sh
+@@ -0,0 +1,64 @@
++#!/bin/sh
++set -e
++
++# Accept arguments from GYP, or fallback to Xcode env vars
++# Arg 1: Build Directory (where the binary is)
++# Arg 2: Executable Name
++BUILD_DIR="${1:-$BUILT_PRODUCTS_DIR}"
++EXECUTABLE_NAME="${2:-$EXECUTABLE_PATH}"
++
++# Fallback for executable name if not provided or in env
++if [ -z "$EXECUTABLE_NAME" ]; then
++    EXECUTABLE_NAME="node_sqlite3"
++fi
++
++FRAMEWORK_NAME="node_sqlite3"
++FRAMEWORK_DIR="${BUILD_DIR}/${FRAMEWORK_NAME}.framework"
++BINARY_SOURCE="${BUILD_DIR}/${EXECUTABLE_NAME}.dylib"
++
++echo "Creating iOS Framework structure at ${FRAMEWORK_DIR}"
++echo "Using binary: ${BINARY_SOURCE}"
++
++# Ensure the framework directory exists
++mkdir -p "${FRAMEWORK_DIR}"
++
++# Copy the binary
++cp "${BINARY_SOURCE}" "${FRAMEWORK_DIR}/${FRAMEWORK_NAME}"
++
++# Create Info.plist
++cat > "${FRAMEWORK_DIR}/Info.plist" <<PLIST_EOF
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++    <key>CFBundleExecutable</key>
++    <string>${FRAMEWORK_NAME}</string>
++    <key>CFBundleIdentifier</key>
++    <string>net.ezrabibleapp.node-sqlite3</string>
++    <key>CFBundleInfoDictionaryVersion</key>
++    <string>6.0</string>
++    <key>CFBundleName</key>
++    <string>${FRAMEWORK_NAME}</string>
++    <key>CFBundlePackageType</key>
++    <string>FMWK</string>
++    <key>CFBundleShortVersionString</key>
++    <string>1.0</string>
++    <key>CFBundleVersion</key>
++    <string>1</string>
++    <key>MinimumOSVersion</key>
++    <string>${IPHONEOS_DEPLOYMENT_TARGET}</string>
++    <key>CFBundleSupportedPlatforms</key>
++    <array>
++        <string>iPhoneOS</string>
++    </array>
++</dict>
++</plist>
++PLIST_EOF
++
++# Sign the framework (ad-hoc)
++/usr/bin/codesign --force --sign - --timestamp=none "${FRAMEWORK_DIR}"
++
++# Remove the source binary
++rm "${BINARY_SOURCE}"
++
++echo "Framework created successfully."
