@@ -6,7 +6,7 @@
     </description>
     <author email="contact@ezrabibleapp.net" href="https://ezrabibleapp.net">EzraBibleApp.net</author>
     <content src="index.html" />
-    <icon src="ezra-bible-app/icons/ezra-android.png" />
+    <!-- <icon src="ezra-bible-app/icons/ezra-android.png" /> -->
     <access origin="*" />
     <access origin="sentry.io" />
     <allow-intent href="http://*/*" />
