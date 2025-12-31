@@ -58,7 +58,6 @@
 
     <platform name="ios">
         <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
-        <hook src="hooks/add_ios_cleanup_build_phase.js" type="after_prepare" />
 
         <preference name="deployment-target" value="13.0" />
 

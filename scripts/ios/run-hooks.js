@@ -6,8 +6,7 @@ const path = require('path');
 const hookPaths = [
   '../../node_modules/@red-mobile/nodejs-mobile-cordova/install/hooks/ios/before-plugin-install.js',
   '../../node_modules/@red-mobile/nodejs-mobile-cordova/install/hooks/ios/after-plugin-install.js',
-  '../../node_modules/@red-mobile/nodejs-mobile-cordova/install/hooks/ios/fix-xcframework-path.js',
-  '../../hooks/add_ios_cleanup_build_phase.js'
+  '../../node_modules/@red-mobile/nodejs-mobile-cordova/install/hooks/ios/fix-xcframework-path.js'
 ];
 
 // Mock the Cordova context object
