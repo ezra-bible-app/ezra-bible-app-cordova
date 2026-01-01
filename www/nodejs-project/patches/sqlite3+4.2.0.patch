@@ -1,18 +1,5 @@
-diff --git a/node_modules/sqlite3/deps/sqlite3.gyp b/node_modules/sqlite3/deps/sqlite3.gyp
-index 61b3085..dbdc9ef 100755
---- a/node_modules/sqlite3/deps/sqlite3.gyp
-+++ b/node_modules/sqlite3/deps/sqlite3.gyp
-@@ -60,7 +60,7 @@
-           'outputs': [
-             '<(SHARED_INTERMEDIATE_DIR)/sqlite-autoconf-<@(sqlite_version)/sqlite3.c'
-           ],
--          'action': ['<!(node -p "process.env.npm_config_python || \\"python\\"")','./extract.py','./sqlite-autoconf-<@(sqlite_version).tar.gz','<(SHARED_INTERMEDIATE_DIR)']
-+          'action': ['<!(node -p "process.env.npm_config_python || \\"python3\\"")','./extract.py','./sqlite-autoconf-<@(sqlite_version).tar.gz','<(SHARED_INTERMEDIATE_DIR)']
-         }
-       ],
-       'direct_dependent_settings': {
 diff --git a/node_modules/sqlite3/binding.gyp b/node_modules/sqlite3/binding.gyp
-index 019df41..c10f85f 100644
+index 019df41..2fe3635 100644
 --- a/node_modules/sqlite3/binding.gyp
 +++ b/node_modules/sqlite3/binding.gyp
 @@ -9,6 +9,20 @@
@@ -22,8 +9,8 @@ index 019df41..c10f85f 100644
 +        ["is_ios==1", {
 +            "type": "shared_library",
 +            "xcode_settings": {
-+              "SDKROOT": "iphoneos",
-+              "IPHONEOS_DEPLOYMENT_TARGET": "13.0",
++              "SDKROOT": "<(ios_sdk)",
++              "IPHONEOS_DEPLOYMENT_TARGET": "<(ios_ver)",
 +              "OTHER_LDFLAGS": [
 +                "-dynamiclib",
 +                "-install_name @rpath/node_sqlite3.framework/node_sqlite3",
@@ -81,14 +68,16 @@ index 019df41..c10f85f 100644
    ]
  }
 diff --git a/node_modules/sqlite3/deps/common-sqlite.gypi b/node_modules/sqlite3/deps/common-sqlite.gypi
-index 13c73ea..2c43b0c 100644
+index 13c73ea..7bcaeef 100644
 --- a/node_modules/sqlite3/deps/common-sqlite.gypi
 +++ b/node_modules/sqlite3/deps/common-sqlite.gypi
-@@ -2,12 +2,19 @@
+@@ -2,12 +2,21 @@
    'variables': {
        'sqlite_version%':'3310100',
        "toolset%":'',
-+      "is_ios%": "<!(python3 -c \"import os; print(1 if os.environ.get('PLATFORM') == 'ios' or os.environ.get('SDKROOT') and 'iPhone' in os.environ.get('SDKROOT') else 0)\")"
++      "is_ios%": "<!(python3 -c \"import os; sdk = os.environ.get('SDKROOT', ''); print(1 if 'iPhone' in sdk or os.environ.get('PLATFORM') == 'ios' else 0)\")",
++      "ios_ver%": "<!(python3 -c \"import os; print(os.environ.get('IPHONEOS_DEPLOYMENT_TARGET', '13.0'))\")",
++      "ios_sdk": "<!(python3 -c \"import os; print('iphonesimulator' if 'iPhoneSimulator' in os.environ.get('SDKROOT', '') else 'iphoneos')\")"
    },
    'target_defaults': {
      'default_configuration': 'Release',
@@ -98,12 +87,25 @@ index 13c73ea..2c43b0c 100644
 +      }],
 +      ['is_ios==1', {
 +        'xcode_settings': {
-+          'SDKROOT': 'iphoneos',
-+          'IPHONEOS_DEPLOYMENT_TARGET': '13.0'
++          'SDKROOT': '<(ios_sdk)',
++          'IPHONEOS_DEPLOYMENT_TARGET': '<(ios_ver)'
 +        }
        }]
      ],
      'configurations': {
+diff --git a/node_modules/sqlite3/deps/sqlite3.gyp b/node_modules/sqlite3/deps/sqlite3.gyp
+index 61b3085..dbdc9ef 100755
+--- a/node_modules/sqlite3/deps/sqlite3.gyp
++++ b/node_modules/sqlite3/deps/sqlite3.gyp
+@@ -60,7 +60,7 @@
+           'outputs': [
+             '<(SHARED_INTERMEDIATE_DIR)/sqlite-autoconf-<@(sqlite_version)/sqlite3.c'
+           ],
+-          'action': ['<!(node -p "process.env.npm_config_python || \\"python\\"")','./extract.py','./sqlite-autoconf-<@(sqlite_version).tar.gz','<(SHARED_INTERMEDIATE_DIR)']
++          'action': ['<!(node -p "process.env.npm_config_python || \\"python3\\"")','./extract.py','./sqlite-autoconf-<@(sqlite_version).tar.gz','<(SHARED_INTERMEDIATE_DIR)']
+         }
+       ],
+       'direct_dependent_settings': {
 diff --git a/node_modules/sqlite3/lib/sqlite3-binding.js b/node_modules/sqlite3/lib/sqlite3-binding.js
 index 065f595..c5bc288 100644
 --- a/node_modules/sqlite3/lib/sqlite3-binding.js
