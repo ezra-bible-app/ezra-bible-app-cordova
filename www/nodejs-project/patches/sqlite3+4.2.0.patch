@@ -104,6 +104,32 @@ index 13c73ea..2c43b0c 100644
        }]
      ],
      'configurations': {
+diff --git a/node_modules/sqlite3/lib/sqlite3-binding.js b/node_modules/sqlite3/lib/sqlite3-binding.js
+index 065f595..c5bc288 100644
+--- a/node_modules/sqlite3/lib/sqlite3-binding.js
++++ b/node_modules/sqlite3/lib/sqlite3-binding.js
+@@ -1,5 +1,18 @@
+-var binary = require('node-pre-gyp');
+ var path = require('path');
+-var binding_path = binary.find(path.resolve(path.join(__dirname,'../package.json')));
+-var binding = require(binding_path);
++var binding;
++if (process.platform === 'ios') {
++    // We are in EzraBibleApp.app/www/nodejs-project/node_modules/sqlite3/lib.
++    // ----------      5         / 4 /      3       /     2      /   1   / 0
++    // To get to the Frameworks folder we need to go up five levels.
++    var frameworkPath = '../../../../../Frameworks/node_sqlite3.framework/node_sqlite3';
++    var modulePath = path.join(__dirname, frameworkPath);
++    var tempModule = { exports: {} };
++    process.dlopen(tempModule, modulePath);
++    binding = tempModule.exports;
++} else {
++    var binary = require('node-pre-gyp');
++    var binding_path = binary.find(path.resolve(path.join(__dirname,'../package.json')));
++    binding = require(binding_path);
++}
++
+ module.exports = exports = binding;
 diff --git a/node_modules/sqlite3/scripts/ios_framework_postbuild.sh b/node_modules/sqlite3/scripts/ios_framework_postbuild.sh
 new file mode 100755
 index 0000000..a4a4069
