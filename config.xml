@@ -67,9 +67,14 @@
         <icon width="167" height="167" src="ezra-bible-app/icons/mac-os-source/ezra_167x167.png" />
         <icon width="152" height="152" src="ezra-bible-app/icons/mac-os-source/ezra_152x152.png" />
         <icon width="120" height="120" src="ezra-bible-app/icons/mac-os-source/ezra_120x120.png" />
+        <icon width="87" height="87" src="ezra-bible-app/icons/mac-os-source/ezra_87x87.png" />
         <icon width="80" height="80" src="ezra-bible-app/icons/mac-os-source/ezra_80x80.png" />
         <icon width="76" height="76" src="ezra-bible-app/icons/mac-os-source/ezra_76x76.png" />
+        <icon width="60" height="60" src="ezra-bible-app/icons/mac-os-source/ezra_60x60.png" />
+        <icon width="58" height="58" src="ezra-bible-app/icons/mac-os-source/ezra_58x58.png" />
         <icon width="40" height="40" src="ezra-bible-app/icons/mac-os-source/ezra_40x40.png" />
+        <icon width="29" height="29" src="ezra-bible-app/icons/mac-os-source/ezra_29x29.png" />
+        <icon width="20" height="20" src="ezra-bible-app/icons/mac-os-source/ezra_20x20.png" />
 
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarStyle" value="lightcontent" />
@@ -79,7 +84,7 @@
         <edit-config file="*-Info.plist" mode="merge" target="CFBundleDisplayName">
             <string>Ezra Bible App</string>
         </edit-config>
-    </platform>∫
+    </platform>
 
     <engine name="android" spec="^14.0.1" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
