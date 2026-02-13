@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="10061" id="net.ezrabibleapp.cordova" version="1.18.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="10061" id="net.ezrabibleapp.cordova" version="1.18.4" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>EzraBibleApp</name>
     <description>
         Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.
     </description>
     <author email="contact@ezrabibleapp.net" href="https://ezrabibleapp.net">EzraBibleApp.net</author>
     <content src="index.html" />
-    <!-- <icon src="ezra-bible-app/icons/ezra-android.png" /> -->
     <access origin="*" />
     <access origin="sentry.io" />
     <allow-intent href="http://*/*" />
@@ -17,70 +16,76 @@
             <path event="launchedAppFromLink" url="*" />
         </host>
     </universal-links>
-
     <platform name="android">
         <hook src="hooks/update_build_gradle.js" type="before_build" />
         <hook src="hooks/deploy_app_sources.js" type="before_build" />
-
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/supports-screens">
             <supports-screens android:largeScreens="true" android:normalScreens="true" android:resizeableActivity="false" android:smallScreens="true" android:xlargeScreens="true" />
         </edit-config>
-
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:requestLegacyExternalStorage="true" />
             <application android:usesCleartextTraffic="true" />
             <application android:resizeableActivity="false" />
             <application android:hasFragileUserData="true" />
         </edit-config>
-
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
             <activity android:windowSoftInputMode="adjustResize" />
             <activity android:exported="true" />
-            <activity android:theme="@style/Theme.App.SplashScreen"></activity>
+            <activity android:theme="@style/Theme.App.SplashScreen" />
         </edit-config>
-
         <edit-config file="app/src/main/res/values/strings.xml" mode="merge" target="/resources/string[@name='app_name']">
             <string name="app_name">Ezra Bible App</string>
         </edit-config>
-
         <icon density="mdpi" src="ezra-bible-app/icons/android/mipmap-mdpi/ezra.png" />
         <icon density="hdpi" src="ezra-bible-app/icons/android/mipmap-hdpi/ezra.png" />
         <icon density="xhdpi" src="ezra-bible-app/icons/android/mipmap-xhdpi/ezra.png" />
         <icon density="xxhdpi" src="ezra-bible-app/icons/android/mipmap-xxhdpi/ezra.png" />
         <icon density="xxxhdpi" src="ezra-bible-app/icons/android/mipmap-xxxhdpi/ezra.png" />
-        
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android-launch.png" />
     </platform>
-
     <platform name="ios">
         <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
-
         <preference name="deployment-target" value="13.0" />
-
-        <!-- See https://developer.apple.com/library/archive/qa/qa1686/_index.html -->
-        <icon width="1024" height="1024" src="ezra-bible-app/icons/mac-os-source/ezra_1024x1024_no_alpha.png" />
-        <icon width="180" height="180" src="ezra-bible-app/icons/mac-os-source/ezra_180x180.png" />
-        <icon width="167" height="167" src="ezra-bible-app/icons/mac-os-source/ezra_167x167.png" />
-        <icon width="152" height="152" src="ezra-bible-app/icons/mac-os-source/ezra_152x152.png" />
-        <icon width="120" height="120" src="ezra-bible-app/icons/mac-os-source/ezra_120x120.png" />
-        <icon width="80" height="80" src="ezra-bible-app/icons/mac-os-source/ezra_80x80.png" />
-        <icon width="76" height="76" src="ezra-bible-app/icons/mac-os-source/ezra_76x76.png" />
-        <icon width="40" height="40" src="ezra-bible-app/icons/mac-os-source/ezra_40x40.png" />
-
         <preference name="resizeOnFullScreen" value="true" />
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#000000" />
-
         <edit-config file="*-Info.plist" mode="merge" target="CFBundleDisplayName">
             <string>Ezra Bible App</string>
         </edit-config>
-    </platform>∫
-
+        <icon height="57" src="ezra-bible-app/icons/ios/icon/icon.png" width="57" />
+        <icon height="114" src="ezra-bible-app/icons/ios/icon/icon@2x.png" width="114" />
+        <icon height="20" src="ezra-bible-app/icons/ios/icon/icon-20.png" width="20" />
+        <icon height="40" src="ezra-bible-app/icons/ios/icon/icon-20@2x.png" width="40" />
+        <icon height="60" src="ezra-bible-app/icons/ios/icon/icon-20@3x.png" width="60" />
+        <icon height="29" src="ezra-bible-app/icons/ios/icon/icon-29.png" width="29" />
+        <icon height="58" src="ezra-bible-app/icons/ios/icon/icon-29@2x.png" width="58" />
+        <icon height="87" src="ezra-bible-app/icons/ios/icon/icon-29@3x.png" width="87" />
+        <icon height="48" src="ezra-bible-app/icons/ios/icon/icon-24@2x.png" width="48" />
+        <icon height="55" src="ezra-bible-app/icons/ios/icon/icon-27.5@2x.png" width="55" />
+        <icon height="88" src="ezra-bible-app/icons/ios/icon/icon-44@2x.png" width="88" />
+        <icon height="172" src="ezra-bible-app/icons/ios/icon/icon-86@2x.png" width="172" />
+        <icon height="196" src="ezra-bible-app/icons/ios/icon/icon-98@2x.png" width="196" />
+        <icon height="216" src="ezra-bible-app/icons/ios/icon/icon-108@2x.png" width="216" />
+        <icon height="40" src="ezra-bible-app/icons/ios/icon/icon-40.png" width="40" />
+        <icon height="80" src="ezra-bible-app/icons/ios/icon/icon-40@2x.png" width="80" />
+        <icon height="120" src="ezra-bible-app/icons/ios/icon/icon-40@3x.png" width="120" />
+        <icon height="50" src="ezra-bible-app/icons/ios/icon/icon-50.png" width="50" />
+        <icon height="100" src="ezra-bible-app/icons/ios/icon/icon-50@2x.png" width="100" />
+        <icon height="60" src="ezra-bible-app/icons/ios/icon/icon-60.png" width="60" />
+        <icon height="120" src="ezra-bible-app/icons/ios/icon/icon-60@2x.png" width="120" />
+        <icon height="180" src="ezra-bible-app/icons/ios/icon/icon-60@3x.png" width="180" />
+        <icon height="72" src="ezra-bible-app/icons/ios/icon/icon-72.png" width="72" />
+        <icon height="144" src="ezra-bible-app/icons/ios/icon/icon-72@2x.png" width="144" />
+        <icon height="76" src="ezra-bible-app/icons/ios/icon/icon-76.png" width="76" />
+        <icon height="152" src="ezra-bible-app/icons/ios/icon/icon-76@2x.png" width="152" />
+        <icon height="167" src="ezra-bible-app/icons/ios/icon/icon-83.5@2x.png" width="167" />
+        <icon height="1024" src="ezra-bible-app/icons/ios/icon/icon-1024.png" width="1024" />
+    </platform>
     <engine name="android" spec="^14.0.1" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
     <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />

@@ -1,6 +1,6 @@
 {
   "name": "ezra-bible-app-backend",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags. This is the node-based backend used for the Cordova app.",
   "main": "cordova_main.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "dropbox": "^10.32.0",
     "fs-extra": "^9.0.1",
     "isomorphic-fetch": "^3.0.0",
-    "node-sword-interface": "^1.0.97",
+    "node-sword-interface": "^1.0.106",
     "sequelize": "^5.22.4",
     "sqlite3": "^4.2.0",
     "umzug": "^2.3.0"

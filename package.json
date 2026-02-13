@@ -1,7 +1,7 @@
 {
   "name": "ezra-bible-app",
   "displayName": "Ezra Bible App",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.",
   "main": "index.js",
   "scripts": {
@@ -54,8 +54,8 @@
     ]
   },
   "devDependencies": {
-    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#07614591",
-    "cordova-ios": "^7.1.0",
+    "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#f21a4a13",
+    "cordova-ios": "^7.1.1",
     "cordova-plugin-ionic-keyboard": "github:itbeyond/cordova-plugin-ionic-keyboard",
     "xcode": "^3.0.1"
   }
