@@ -46,8 +46,6 @@
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android-launch.png" />
-        <preference name="scheme" value="https" />
-        <preference name="hostname" value="localhost" />
         <preference name="AndroidInsecureFileModeEnabled" value="true" />
     </platform>
     <platform name="ios">
@@ -57,6 +55,8 @@
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#000000" />
+        <preference name="scheme" value="app" />
+        <preference name="hostname" value="localhost" />
         <edit-config file="*-Info.plist" mode="merge" target="CFBundleDisplayName">
             <string>Ezra Bible App</string>
         </edit-config>
