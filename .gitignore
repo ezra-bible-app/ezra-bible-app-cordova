@@ -16,3 +16,5 @@ www/nodejs-project/**
 !www/nodejs-project/patches/**
 
 release-signing.properties
+*.keystore
+*.keystore.*
