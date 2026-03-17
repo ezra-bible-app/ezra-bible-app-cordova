@@ -1,7 +1,7 @@
 {
   "name": "ezra-bible-app",
   "displayName": "Ezra Bible App",
-  "version": "1.18.8",
+  "version": "1.19.0",
   "description": "Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,10 @@
       "cordova-plugin-device": {},
       "@red-mobile/nodejs-mobile-cordova": {},
       "cordova-plugin-customurlscheme": {
-        "URL_SCHEME": "ezrabible"
+        "URL_SCHEME": "ezrabible",
+        "ANDROID_SCHEME": " ",
+        "ANDROID_HOST": " ",
+        "ANDROID_PATHPREFIX": "/"
       },
       "cordova-plugin-deeplinks": {}
     },
