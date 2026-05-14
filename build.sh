@@ -84,6 +84,13 @@ if [ "$CLEAN" = true ]; then
   
   if [ "$PLATFORM" = "ios" ]; then
     cordova platform add ios@7.1.0
+
+    # cordova-plugin-deeplinks bundles plist@5 which is ESM-only and breaks its
+    # afterPrepareHook on Node >= 18, aborting the after_prepare hook chain
+    # (which silently drops nodejs-mobile-cordova's build phases).
+    # Pin to the last CJS-compatible release.
+    (cd plugins/cordova-plugin-deeplinks && npm install plist@3.1.0 --no-save)
+
     cordova prepare ios
 
     echo "iOS platform added. Exiting to allow manual tinkering."
