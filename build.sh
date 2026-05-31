@@ -98,6 +98,12 @@ if [ "$CLEAN" = true ]; then
     exit 0
   elif [ "$PLATFORM" = "android" ]; then
     cordova platform add android@14.0.1
+
+    # cordova-plugin-deeplinks bundles plist@5 which is ESM-only and breaks its
+    # afterPrepareHook on Node >= 18, aborting the after_prepare hook chain
+    # (which silently drops nodejs-mobile-cordova's build phases).
+    # Pin to the last CJS-compatible release.
+    (cd plugins/cordova-plugin-deeplinks && npm install plist@3.1.0 --no-save)
   fi
 fi
 
