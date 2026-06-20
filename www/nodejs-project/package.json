@@ -10,7 +10,7 @@
   "author": "Tobias Klein",
   "license": "GPL-2.0+",
   "dependencies": {
-    "conf": "^7.1.2",
+    "conf": "^15.1.0",
     "crypto": "^1.0.1",
     "dropbox": "^10.32.0",
     "fs-extra": "^9.0.1",
