@@ -89,7 +89,7 @@
         <icon height="167" src="ezra-bible-app/icons/ios/icon/icon-83.5@2x.png" width="167" />
         <icon height="1024" src="ezra-bible-app/icons/ios/icon/icon-1024.png" width="1024" />
     </platform>
-    <engine name="android" spec="^15.1.0" />
+    <engine name="android" spec="^14.0.1" />
     <plugin name="cordova-plugin-android-permissions" spec="^1.1.5" />
     <plugin name="cordova-plugin-is-debug" spec="^1.0.0" />
     <plugin name="cordova-plugin-fullscreen" spec="^1.3.0" />
@@ -97,7 +97,6 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^7.0.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.14" />
     <plugin name="cordova-clipboard" spec="^1.3.0" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="git+https://github.com/yjseo29/cordova-plugin-ionic-keyboard.git#8a2ae2d" />
     <plugin name="cordova-plugin-file" spec="^6.0.2" />
     <plugin name="cordova-plugin-network-information" spec="git+https://github.com/apache/cordova-plugin-network-information.git#78de889" />
     <plugin name="cordova-plugin-statusbar" spec="^4.0.0" />
