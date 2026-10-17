@@ -18,3 +18,5 @@ www/nodejs-project/**
 release-signing.properties
 *.keystore
 *.keystore.*
+
+package-lock.json
