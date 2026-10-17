@@ -33,7 +33,6 @@
       "cordova-plugin-insomnia": {},
       "cordova-plugin-app-version": {},
       "cordova-clipboard": {},
-      "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-file": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-statusbar": {},
@@ -47,7 +46,8 @@
         "ANDROID_PATHPREFIX": "/"
       },
       "cordova-plugin-deeplinks": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
       "android",
@@ -58,7 +58,7 @@
     "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#ff6e38ba",
     "cordova-android": "^15.1.0",
     "cordova-ios": "^7.1.0",
-    "cordova-plugin-ionic-keyboard": "github:ionic-team/cordova-plugin-ionic-keyboard",
+    "cordova-plugin-ionic-keyboard": "github:yjseo29/cordova-plugin-ionic-keyboard#8a2ae2d",
     "cordova-plugin-network-information": "github:apache/cordova-plugin-network-information#78de889",
     "xcode": "^3.0.1"
   }
