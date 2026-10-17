@@ -47,7 +47,8 @@
       },
       "cordova-plugin-deeplinks": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "@moodlehq/cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
       "android",
@@ -55,10 +56,10 @@
     ]
   },
   "devDependencies": {
+    "@moodlehq/cordova-plugin-ionic-keyboard": "^2.2.0-moodle.4",
     "@red-mobile/nodejs-mobile-cordova": "github:tobias-klein/nodejs-mobile-cordova#ff6e38ba",
-    "cordova-android": "^15.1.0",
+    "cordova-android": "^14.0.1",
     "cordova-ios": "^7.1.0",
-    "cordova-plugin-ionic-keyboard": "github:yjseo29/cordova-plugin-ionic-keyboard#8a2ae2d",
     "cordova-plugin-network-information": "github:apache/cordova-plugin-network-information#78de889",
     "xcode": "^3.0.1"
   }
