@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="10067" id="net.ezrabibleapp.cordova" version="1.20.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="10068" id="net.ezrabibleapp.cordova" version="1.20.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ezra Bible App</name>
     <description>
         Ezra Bible App is a Bible study tool focussing on topical study based on keywords/tags.
@@ -47,6 +47,8 @@
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="ezra-bible-app/icons/ezra-android-launch.png" />
         <preference name="AndroidInsecureFileModeEnabled" value="true" />
+        <preference name="android-targetSdkVersion" value="36" />
+        <preference name="android-compileSdkVersion" value="36" />
     </platform>
     <platform name="ios">
         <hook src="hooks/deploy_app_sources.js" type="before_prepare" />
