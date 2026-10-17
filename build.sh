@@ -97,7 +97,7 @@ if [ "$CLEAN" = true ]; then
     echo "Run './build.sh -p ios' (without -c) to build."
     exit 0
   elif [ "$PLATFORM" = "android" ]; then
-    cordova platform add android@15.1.0
+    cordova platform add android@14.0.1
 
     # cordova-plugin-deeplinks bundles plist@5 which is ESM-only and breaks its
     # afterPrepareHook on Node >= 18, aborting the after_prepare hook chain
